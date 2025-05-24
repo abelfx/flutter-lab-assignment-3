@@ -14,21 +14,21 @@ class AlbumListScreen extends StatelessWidget {
           if (state is AlbumError) return Center(child: Text(state.message));
           if (state is AlbumLoaded) {
             return Padding(
-              padding: const EdgeInsets.all(8.0), // Outer padding
+              padding: const EdgeInsets.all(8.0),
               child: ListView.builder(
                 itemCount: state.albums.length,
                 itemBuilder: (context, index) {
                   final album = state.albums[index];
                   return Container(
-                    margin: const EdgeInsets.symmetric(vertical: 4), // Space between items
+                    margin: const EdgeInsets.symmetric(vertical: 4),
                     decoration: BoxDecoration(
                       color: index.isEven
                           ? Colors.grey.shade100
-                          : Colors.blueGrey.shade50, // Alternating colors
+                          : Colors.blueGrey.shade50,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: ListTile(
-                      contentPadding: EdgeInsets.all(12), // Inner padding
+                      contentPadding: EdgeInsets.all(12),
                       title: Text(album.title),
                       onTap: () => context.go('/album/${album.id}'),
                     ),
